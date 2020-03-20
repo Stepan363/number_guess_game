@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+</head>
+
+<body>
+
+</body>
+</html>
+
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	</head>
+
+	<body>
+		<p> hello, Here is your yummy drink (slurp) </p>
+	
+		<img id = 'молоко' src = 'assets/milk.jpg' style="display: none;"/> 
+		<img id = 'чай' src = 'assets/tea.jpg' style="display: none;"/>
+		<img id = 'сок' src = 'assets/juice.jpg' style="display: none;"/>
+		<img id=  'сомпутер' src = 'assets/computer.jpg' style="display: none;"/>
+		<img id=  'toung' src = 'assets/toung.png' style="display: none;"/>
+
+		<div id = 'top'>
+			<button class= 'mainbutton' type='button' onclick = runfor()>press me!!</button><br>
+		</div>
+
+		<div id='main'>
+
+		</div>
+	</body>
+</html>
+
+
+<script>
+
+
+hidden_number_I_am_so_smart_you_will_never_guess = Math.floor(Math.random() * 101);
+z = "";
+
+function guess(my_guess_number)
+{
+	if(my_guess_number == hidden_number_I_am_so_smart_you_will_never_guess)	
+	{
+		window.alert("You won!! ");
+
+		return true;
+	}
+	if(my_guess_number < hidden_number_I_am_so_smart_you_will_never_guess)
+	{
+		window.alert("higher number");
+
+		return false;
+	}
+    if(my_guess_number > hidden_number_I_am_so_smart_you_will_never_guess)    
+    {
+        window.alert("lower number");
+
+        return false;
+    }
+    
+}
+function stepa()
+{
+	window.alert("Stepa is best");
+}
+
+
+
+function start()
+{
+	for(var i = 0; i <100; i = i + 1)
+	{
+		var num = window.prompt("think of a num.");
+		if (isNaN(num))
+		{
+			window.alert("that's not a num!  TRY AGAIN!!");
+		}
+		else
+		{
+			result = guess(num);
+
+			if (result == true)
+			{
+				mooo();
+				break;
+			}
+		}
+	}
+}
+
+function mooo()
+{
+	var age = window.prompt("What do you want, milk juice or tea? Write 1 for milk, 2 for tea and 3 for juice 4 for computer and 5 for tongue");
+	if (isNaN(age))
+	{
+		window.alert("that's not a number! ");
+	}
+	else
+	{
+		if(age == 1)
+		{
+			window.alert("here you have the milk muuuuuuuuuuuuuuuuu rest with your milk");
+			z = "#молоко";
+		}
+
+		if(age == 2)
+		{
+			window.alert("here is your tea ouch ouchhhhhhhhhhhh how hot rest with your tea ")
+			z = "#чай";
+		} 
+		if (age == 3)
+		{
+			window.alert("here is your juice ahhhhhhhhhhhhhhhhhhhh how good rest with your juice")
+			z = "#сок";
+		}
+
+		if(age == 4)
+		{
+			window.alert("here is your computer rest with your computer")
+			z = "#сомпутер";
+		} 
+
+		if(age == 5)
+		{
+			window.alert(" here is your silly funny looking toung,")
+			z = "#toung";
+		} 
+
+		$(z).show();
+	}
+}
+
+function runfor()
+{
+	image_src = $(z).attr('src');
+
+	for(i=0; i < 1008; i++)
+	{
+		imageID = "image"+i;
+
+		$('#main').append("<img class = 'loopimage' id = '"+imageID+"'src = '" + image_src + "'/>");
+		RotateImage(imageID, i*20);
+	}
+}
+
+function RotateImage(imageID, angle) 
+{
+	console.log( '#'+imageID );
+ 	$('#'+imageID).css({transform: "rotate("+angle+"deg)"});
+}
+
+
+start(); 
+
+</script>
